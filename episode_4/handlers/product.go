@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"regexp"
 	"strconv"
+
+	"github.com/govipul/GoMicroservices/episode_4/data"
 )
 
 //Products struct
@@ -32,10 +34,16 @@ func (p *Products) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 		//expect the id in URL
 		reg := regexp.MustCompile("/([0-9]+)")
 		g := reg.FindAllStringSubmatch(r.URL.Path, -1)
-		if len(g) != 1 || len(g[0]) != 2 {
+		if len(g) != 1 {
 			http.Error(rw, "Invalid URI", http.StatusBadRequest)
 			return
 		}
+
+		if len(g[0]) != 2 {
+			http.Error(rw, "Invalid number of argument", http.StatusBadRequest)
+			return
+		}
+
 		idString := g[0][1]
 		id, err := strconv.Atoi(idString)
 		if err != nil {
@@ -85,6 +93,7 @@ func (p *Products) addProduct(rw http.ResponseWriter, r *http.Request) {
 	err := prod.FromJSON(r.Body)
 	if err != nil {
 		http.Error(rw, "Unable to marshal json", http.StatusBadRequest)
+		return
 	}
 	p.l.Printf("Prod: %#v", prod)
 	data.AddProduct(prod)
