@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"../data"
+	"github.com/govipul/GoMicroservices/episode_3/data"
 )
 
 type Products struct {

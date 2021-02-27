@@ -5,14 +5,14 @@ import (
 	"net/http"
 	"regexp"
 	"strconv"
-
-	"../data"
 )
 
+//Products struct
 type Products struct {
 	l *log.Logger
 }
 
+//NewProducts instance
 func NewProducts(l *log.Logger) *Products {
 	return &Products{l}
 }

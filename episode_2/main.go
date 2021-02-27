@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"time"
 
-	"./handlers"
+	"github.com/govipul/GoMicroservices/episode_2/handlers"
 )
 
 func main() {
