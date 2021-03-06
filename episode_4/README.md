@@ -7,7 +7,7 @@ The output message i got is as follow:
 So no idea what has went incorrect during the tutorial, but will continuing to debug the code and update the solution as soon i will be able to fix the issue.
 
 # Solution
-1. I did mistake to log proper error in addProduct and updateProduct method, even tough i was catching the error but forgot to write return message, so even though i was catching still i was proceeding with the code.
+1. I did mistake to log proper error in addProduct and updateProduct method, even tough i was catching the error but forgot to write return message, and hence i was getting the empty product. Now why i was getting the error that is explained in below point.
 2. JQ in powershell doesnt work as same as linux so we have to write the code in following format 
     ```curl localhost:9000/1 -v -XPUT -d '{\"name\": \"tea\", \"description\": \"Relaxing tea\"}' | jq``` i have added ```\"``` instead of ```"``` 
     As   @Nic Jackson  is using WSL in the background its working seamlessly in his machine, but good learning with windows.
