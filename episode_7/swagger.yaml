@@ -1,0 +1,14 @@
+basePath: /
+consumes:
+- application/json
+host: localhost
+info:
+  description: Documentation for product API Dummy
+  title: of Product API
+  version: 1.0.1
+paths: {}
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"
