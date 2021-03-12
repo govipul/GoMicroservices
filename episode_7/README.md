@@ -1,7 +1,7 @@
 # Problem faced in episode 7
 Documenting the REST API with Swagger
 
-### first which i noiced that nic has created a beautiful env package and is using that package to manage the server address. ###
+### first which i noiced that nic has created a env package and is using that package to manage the server address. ###
 So for that please follow the following steps:
 1. ```go get github.com/nicholasjackson/env```
 2. Add the above package in your import files
@@ -25,8 +25,8 @@ s := http.Server{
 ```bash
 echo "deb https://dl.bintray.com/go-swagger/goswagger-debian ubuntu main" | sudo tee /etc/apt/sources.list.d/goswagger.list
 apt install swagger
-``` and to validate the version we can use following command 
-```root:episode_7# swagger version
+ and to validate the version we can use following command 
+root:episode_7# swagger version
 version: v0.26.1
 commit: (unknown, mod sum: "h1:1XUWLnH6hKxHzeKjJfA2gHkSqcT1Zgi4q/PZp2hDdN8=")
 ```
