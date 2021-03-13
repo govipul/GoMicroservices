@@ -1,10 +1,11 @@
-module github.com/govipul/GoMicroservices/episode_5
+module github.com/govipul/GoMicroservices/episode_7
 
 go 1.14
 
 require (
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
 	github.com/go-openapi/errors v0.20.0 // indirect
+	github.com/go-openapi/runtime v0.19.26 // indirect
 	github.com/go-openapi/validate v0.20.2 // indirect
 	github.com/go-playground/validator/v10 v10.4.1
 	github.com/go-swagger/go-swagger v0.26.1 // indirect

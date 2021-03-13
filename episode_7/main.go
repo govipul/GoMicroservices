@@ -8,8 +8,9 @@ import (
 	"os/signal"
 	"time"
 
+	"github.com/go-openapi/runtime/middleware"
 	"github.com/gorilla/mux"
-	"github.com/govipul/GoMicroservices/episode_5/handlers"
+	"github.com/govipul/GoMicroservices/episode_7/handlers"
 	"github.com/nicholasjackson/env"
 )
 
@@ -33,11 +34,22 @@ func main() {
 
 	putRouter := sm.Methods(http.MethodPut).Subrouter()
 	putRouter.HandleFunc("/{id:[0-9]+}", ph.UpdateProduct)
-	putRouter.Use(ph.MiddlewareProductValication)
+	putRouter.Use(ph.MiddlewareProductValidation)
 
 	postRouter := sm.Methods(http.MethodPost).Subrouter()
 	postRouter.HandleFunc("/", ph.AddProduct)
-	postRouter.Use(ph.MiddlewareProductValication)
+	postRouter.Use(ph.MiddlewareProductValidation)
+
+	deleteRouter := sm.Methods(http.MethodDelete).Subrouter()
+	deleteRouter.HandleFunc("/{id:[0-9]+}", ph.DeleteProduct)
+
+	/* TODO: Add the DeleteProduct API for deleteing the product from the data */
+
+	// Used for go swagger
+	opts := middleware.RedocOpts{SpecURL: "/swagger.yaml"}
+	sh := middleware.Redoc(opts, nil)
+	getRouter.Handle("/docs", sh)
+	getRouter.Handle("/swagger.yaml", http.FileServer(http.Dir("./")))
 
 	s := http.Server{
 		Addr:         *bindAddress,
