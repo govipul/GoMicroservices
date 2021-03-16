@@ -44,6 +44,22 @@ paths:
           $ref: '#/responses/productsResponse'
       tags:
       - products
+    put:
+      description: Returns a update of porduct
+      operationId: updateProducts
+      responses:
+        "200":
+          $ref: '#/responses/productsResponse'
+      tags:
+      - products
+  /products/:
+    post:
+      operationId: addProduct
+      responses:
+        "200":
+          $ref: '#/responses/noContent'
+      tags:
+      - products
   /products/{id}:
     delete:
       operationId: deleteProduct
